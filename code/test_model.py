@@ -4,10 +4,13 @@ from util import get_face_landmarks
 
 emotions = ['ANGRY', 'HAPPY', 'SAD', 'SURPRISED']
 
-with open('./code', 'rb') as f:
+with open('./code.pkl', 'rb') as f:
     model = pickle.load(f)
     
-cap = cv2.VideoCapture(2)
+cap = cv2.VideoCapture(0)
+if not cap.isOpened():
+    print("Errore: Webcam non disponibile!")
+    exit()
 
 ret, frame = cap.read()
 

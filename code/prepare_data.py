@@ -19,4 +19,4 @@ for emotion_indx, emotion in enumerate(os.listdir(data_dir)):
             face_landmarks.append(int(emotion_indx))
             output.append(face_landmarks)
             
-np.savetxt('data.txt', np.asarray(output))
+np.savetxt('./Desktop/EmotionDetectionAI/code/data.txt', np.asarray(output))

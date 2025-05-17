@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix
 
-data_file = "C:/Users/fantini.alessandro/Desktop/EmotionDetectionAI/code/data.txt"
+data_file = r"C:\Users\drj4k\OneDrive\Desktop\AIProjectsAlw\EmotionDetectionAI\code\data.txt"
 data = np.loadtxt(data_file)
 
 X = data[:, :-1]
@@ -24,5 +24,6 @@ print(f"Accuracy: {accuracy * 100:.2f}%")
 print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
 print(confusion_matrix(y_test, y_pred))
 
-with open('./code.pkl', 'wb') as f:
+code_path = r"C:\Users\drj4k\OneDrive\Desktop\AIProjectsAlw\EmotionDetectionAI\code\code.pkl"
+with open(code_path, 'wb') as f:
     pickle.dump(rf_classifier, f)

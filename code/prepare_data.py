@@ -3,7 +3,7 @@ import os
 import cv2
 import numpy as np
 
-data_dir = './EmotionDetectionAI/dataset/faces'
+data_dir = r'C:\Users\drj4k\OneDrive\Desktop\AIProjectsAlw\EmotionDetectionAI\dataset\faces'
 
 output = []
 
@@ -19,4 +19,5 @@ for emotion_indx, emotion in enumerate(os.listdir(data_dir)):
             face_landmarks.append(int(emotion_indx))
             output.append(face_landmarks)
             
-np.savetxt('./Desktop/EmotionDetectionAI/code/data.txt', np.asarray(output))
+output_path = r'C:\Users\drj4k\OneDrive\Desktop\AIProjectsAlw\EmotionDetectionAI\code\data.txt'
+np.savetxt(output_path, np.asarray(output))

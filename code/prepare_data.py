@@ -2,8 +2,11 @@ from util import get_face_landmarks
 import os
 import cv2
 import numpy as np
+import os
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-data_dir = r'C:\Users\drj4k\OneDrive\Desktop\AIProjectsAlw\EmotionDetectionAI\dataset\faces'
+data_dir = os.path.join(BASE_DIR, '..', 'dataset', 'faces')
+output_path = os.path.join(BASE_DIR, 'data.txt')
 
 output = []
 

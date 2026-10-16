@@ -5,7 +5,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix
 
-data_file = r"C:\Users\drj4k\OneDrive\Desktop\AIProjectsAlw\EmotionDetectionAI\code\data.txt"
+import os
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+data_file = os.path.join(BASE_DIR, 'data.txt')
+code_path = os.path.join(BASE_DIR, 'code.pkl')
 data = np.loadtxt(data_file)
 
 X = data[:, :-1]

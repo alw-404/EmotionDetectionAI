@@ -2,27 +2,25 @@ import pickle
 import cv2
 from util import get_face_landmarks
 
+import os
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 #usato per conoscere versione di OpenCV
 #print(cv2.__version__)
 
 emotions = ['ANGRY' ,'HAPPY', 'SAD']
 
-code_path = r"C:\Users\drj4k\OneDrive\Desktop\AIProjectsAlw\EmotionDetectionAI\code\code.pkl"
+code_path = os.path.join(BASE_DIR, 'code.pkl')
+cap = cv2.VideoCapture(0, cv2.CAP_V4L2) #se webcam integrata == 0, se esterna o secondaria == 1 / 2
 with open(code_path, 'rb') as f:
     model = pickle.load(f)
-    
-cap = cv2.VideoCapture(0) #se webcam integrata == 0, se esterna o secondaria == 1 / 2
 
 #usato per controllo webcam
-#if not cap.isOpened():
-#    print("Errore: Webcam non disponibile!")
-#    exit()
-#else:
-#    print("Webcam aperta con successo")
-
-#if not cap.isOpened():
-#    print("Errore: Webcam non disponibile!")
-#    exit()
+if not cap.isOpened():
+    print("Errore: Webcam non disponibile!")
+    exit()
+else:
+    print("Webcam aperta con successo")
 
 ret, frame = cap.read()
 
@@ -48,6 +46,8 @@ while ret:
                5)
 
     cv2.imshow('frame', frame)
+
+    print(len(face_landmarks))
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break

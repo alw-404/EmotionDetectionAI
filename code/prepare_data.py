@@ -8,6 +8,9 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 data_dir = os.path.join(BASE_DIR, '..', 'dataset', 'faces')
 output_path = os.path.join(BASE_DIR, 'data.txt')
 
+
+
+
 output = []
 
 for emotion_indx, emotion in enumerate(os.listdir(data_dir)):
